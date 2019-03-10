@@ -25,7 +25,7 @@
                 top: 0;
                 left: 0;
                 width: 100%;
-                height: 120px;
+                height: 5em;
                 text-align: center;
             }
 
@@ -36,7 +36,7 @@
                 width: 100%;
                 margin-top: 10px;
                 margin-bottom: 10px;
-                margin-left: 10px;
+                margin-left: 5em;
                 text-align: center;
                 font-size: 8;
                 color: rgb(196, 192, 228);
@@ -257,10 +257,15 @@
                     audio.play();
             }
 
+            function search(input){
+                $('#iframe_image').css('-webkit-transform', r > 1 ? 'scale(2)' : 'scale(1)');
+                $('#iframe_image').attr('src', 'https://cn.bing.com/images/search?q=' + encodeURI(input));
+            }
+
             function word_click(s){          
                 var word = $('#' + s.id).text()
                 pronounce(word);
-                $('#iframe_image').attr('src', `https://cn.bing.com/images/search?q= ${word}`);
+                search(word);
             }
 
             $(document).ready(function(){
@@ -286,14 +291,11 @@
 
                 });
 
-                $('#ta_input').on("tap",function(){
-                    $(this).hide();
-                });
                 //serach the input with bing
                 $('#search').click(function(){
                     var words = $('#ta_input').val();
                     if(words != ''){
-                    $('#iframe_image').attr('src', 'https://cn.bing.com/images/search?q=' + encodeURI(words));
+                        search(words);
                     }
                 });
 
@@ -308,38 +310,39 @@
 
                 let h = $(window).height();
                 let w = $(window).width();      
-                let r = h/w;
-                if(h)
-                $('#search').width(r > 1 ? 400 : 200);
-                $('#iframe_image').height(r > 1 ? h * 0.5/2 : h * 0.7);
+                r = h/w;
+
+                
+                $('#iframe_image').height(r > 1 ? h * 0.5/2 : h * 0.6);
                 $('#iframe_image').width(r > 1 ? w/3*2 : w);
-                $('#iframe_image').css('top', r > 1 ? 15 : -30);
+                $('#iframe_image').css('top', r > 1 ? 80 : -70);
                 $('#iframe_image').css('-webkit-transform', r > 1 ? 'scale(2)' : 'scale(1)');
-                $('#spacer').height( r > 1 ? h * 0.5 + 120 : h * 0.7 - 30);
-                $('#ta_input').css('font-size', r > 1 ?'40px':'20px');
-                $('#ta_input').attr('cols', r > 1 ?'30':'50');
+                $('#ta_input').css('font-size', r > 1 ?'4em':'2em');
+                $('#ta_input').attr('cols', r > 1 ?'20':'50');
                 $('#btn_close').width(r > 1 ? 100 : 40);
+                $('#search').width(r > 1 ? 400 : 200);
+                $('#spacer').height(($('#iframe_image').height()) * (r > 1 ? 2 : 1) - 80 * (r > 1 ? 2 : 1));
     });
         </script>
     </head>
     <body>
         <center>
             
-            <iframe id="iframe_image" name="search" src="help.html" scrolling="no"  allowfullscreen="" style="-webkit-transform:scale(1);border-width: 0;left:0;position:absolute; min-height: 560px; width: 100%"  height="560" width="100%"></iframe>
+            <iframe id="iframe_image" name="search" src="help.html" scrolling="no"  allowfullscreen="" style="-webkit-transform:scale(1);border-width: 0;left:0;position:absolute; min-height: 560px; width: 100%"></iframe>
 
             <div class="header">
                 <a href="help.html" target="search">
-                    <img src="images/logo.png" height="100" style="padding: 10px;">
+                    <img src="images/logo.png" style="padding: 10px; height: 5em;">
                 </a>
             </div>
             
             <div id="spacer"></div>
 
-            <div id='output_words' style='font-size: 100px;margin: 10px;'></div>
+            <div id='output_words' style='font-size: 100px;margin: 5px;'></div>
             <br>
             <span>
                 <div style="border-radius: 20px; width: 80%; max-width: 800px; overflow: hidden;display: inline; ">
-                    <textarea rows="1"" cols="20" id='ta_input' style='padding: 20px; border-color:plum;border-width: 0px;' autocapitalize="none"></textarea>
+                    <textarea rows="1"" cols="20" id='ta_input' style='padding: 10px; border-color:plum;border-width: 0px;' autocapitalize="none"></textarea>
                 </div>
                 <div style="display: inline; ">
                     <img id="btn_close" src="images/close.png" width="40">
