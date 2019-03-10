@@ -318,9 +318,9 @@
                 $('#iframe_image').css('top', r > 1 ? 80 : -70);
                 $('#iframe_image').css('-webkit-transform', r > 1 ? 'scale(2)' : 'scale(1)');
                 $('#ta_input').css('font-size', r > 1 ?'4em':'2em');
-                $('#ta_input').attr('cols', r > 1 ?'20':'50');
+                $('#ta_input').attr('cols', r > 1 ?'20':'40');
                 $('#btn_close').width(r > 1 ? 100 : 40);
-                $('#search').width(r > 1 ? 200 : 100);
+                $('#search').width(r > 1 ? 100 : 40);
                 $('#spacer').height(($('#iframe_image').height()) * (r > 1 ? 2 : 1) - 80 * (r > 1 ? 2 : 1));
     });
         </script>
@@ -340,17 +340,18 @@
 
             <div id='output_words' style='font-size: 100px;margin: 5px;'></div>
             <br>
-            <span>
-                <div style="border-radius: 20px; width: 80%; max-width: 800px; overflow: hidden;display: inline; ">
-                    <textarea rows="1"" cols="20" id='ta_input' style='padding: 10px; border-color:plum;border-width: 0px;' autocapitalize="none"></textarea>
+            <span width="80%" style="background-color: #BBA5E1; margin-left:20px; padding:20px; border-radius: 20px; max-width: 800px;display:table-cell ; ">
+                <div style="display: table-cell; vertical-align: middle; ">
+                        <img id="btn_close" src="images/close.png" width="40" style="margin-right:10px;">
                 </div>
-                <div style="display: inline; ">
-                    <img id="btn_close" src="images/close.png" width="40">
+                <div style="border-radius: 10px; max-width: 800px; overflow: hidden;display: table-cell;">
+                    <textarea id='ta_input' rows="1"" cols="20" style='padding: 10px; border-color:plum;border-width: 0px;' autocapitalize="none"></textarea>
+                </div>
+                <div style="display: table-cell;vertical-align: middle;margin-left:10px;">
+                    <img  id="search" src="images/search.png" width="50" style="margin-left: 10px;">
                 </div>
             </span>
             <br>
-            <img src="images/search.png" width="50" style="margin: 10px;" id="search">
-
             <div class="footer">
                 <b>Homemade Visual Dictionary for Kids|Based on <a href="https://www.bing.com/">Bing</a> and <a href="https://dictionary.cambridge.org/">Cambridge Dictionary</a></b>
             </div>  
