@@ -258,8 +258,7 @@
             }
 
             function search(input){
-                $('#iframe_image').css('-webkit-transform', r > 1 ? 'scale(2)' : 'scale(1)');
-                $('#iframe_image').attr('src', 'https://cn.bing.com/images/search?q=' + encodeURI(input));
+                $('#iframe_image').attr('src', 'https://cn.bing.com/images/search?q=' + encodeURI(input) + '&go=Search&qs=ds&form=QBIR');
             }
 
             function word_click(s){          
@@ -313,22 +312,24 @@
                 r = h/w;
 
                 
-                $('#iframe_image').height(r > 1 ? h * 0.5/2 : h * 0.6);
-                $('#iframe_image').width(r > 1 ? w/3*2 : w);
-                $('#iframe_image').css('top', r > 1 ? 80 : -70);
+                $('#iframe_image').height(r > 1 ? h * 0.4 : h * 0.6);
+                $('#iframe_image').width(r > 1 ? w/2 : w);
+                $('#iframe_image').css('top', r > 1 ? -15 : -70);
+                $('#iframe_image').css('left', r > 1 ? w/4 : -70);
                 $('#iframe_image').css('-webkit-transform', r > 1 ? 'scale(2)' : 'scale(1)');
                 $('#ta_input').css('font-size', r > 1 ?'4em':'2em');
-                $('#ta_input').attr('cols', r > 1 ?'20':'40');
+                $('#ta_input').attr('cols', r > 1 ?'14':'40');
                 $('#btn_close').width(r > 1 ? 100 : 40);
-                $('#search').width(r > 1 ? 80 : 40);
-                $('#spacer').height(($('#iframe_image').height()) * (r > 1 ? 2 : 1) - 80 * (r > 1 ? 2 : 1));
+                $('#search').width(r > 1 ? 100 : 40);
+                $('#spacer').height(($('#iframe_image').height()) * (r > 1 ? 2 : 1) - (r > 1 ? 300 : 80));
     });
         </script>
     </head>
     <body>
         <center>
-            
-            <iframe id="iframe_image" name="search" src="help.html" scrolling="no"  allowfullscreen="" style="-webkit-transform:scale(1);border-width: 0;left:0;position:absolute; min-height: 560px; width: 100%"></iframe>
+            <div style="display:table-cell; overflow:hidden; height="600" width"600"> 
+                <iframe id="iframe_image" name="search" src="help.html" scrolling="no"  allowfullscreen="" style="-webkit-transform:scale(1);border-width: 0;left:0;position:absolute; min-height: 260px; width: 100%"></iframe>
+           </div>
 
             <div class="header">
                 <a href="help.html" target="search">
