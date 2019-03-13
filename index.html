@@ -267,13 +267,18 @@
                 search(word);
             }
 
+            function tapping_click(s){          
+                $('#word0').click();
+                $('#word0').mousedown()
+            }
+
             $(document).ready(function(){
 
                 $('#ta_input').on('input',function(){
                     $('#output_words').empty();
                     var words = $('#ta_input').val();
                     words_arr = words.split(' ');
-
+                    $('#output_words').append('<span><img onclick="tapping_click();" style="top: 30px; position:relative" src="images/tapping.png" width="100"></span>')
                     for(var i=0; i<words_arr.length; i++){
                         $('#output_words').append(`<span onclick="word_click(this);" id="word${i}" >${words_arr[i]}</span><span> </span>`);   
                     }
